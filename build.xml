@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="compile" name="Splendor">
+    <property environment="env"/>
+              	
+    <path id="Splendor.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/zen5/zen5.jar"/>
+    </path>
+    <path id="run.Main (1).classpath">
+        <path refid="Splendor.classpath"/>
+        <pathelement location="lib/zen5/zen5.jar"/>
+    </path>
+              	
+  
+    <target name="init">
+        <mkdir dir="bin"/>
+    </target>
+              	
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+              	              	
+    <target depends="init" name="compile">
+        <javac destdir="bin" srcdir="src">
+            <classpath refid="Splendor.classpath"/>
+        </javac>
+    </target>
+    	
+	    <property name="dir.buildfile" value="."/>
+	    <property name="dir.workspace" value="E:/Log/eclipse-workspace"/>
+	    <property name="dir.jarfile" value="${dir.buildfile}"/>
+	    	
+    <target name="create_run_jar">
+	        <jar destfile="${dir.jarfile}/Splendor.jar" filesetmanifest="mergewithoutmain">
+	            <manifest>
+	                <attribute name="Main-Class" value="fr.uge.splendor.main.Main"/>
+	                <attribute name="Class-Path" value="."/>
+	            </manifest>
+	            <fileset dir="${dir.jarfile}/bin"/>
+	            <zipfileset excludes="META-INF/*.SF" src="${dir.jarfile}/lib/zen5/zen5.jar"/>
+	        </jar>
+	            	
+    </target>
+	<target name="javadoc">
+	        <javadoc access="public" author="true" classpath="lib/zen5/zen5.jar" destdir="docs/doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="fr.uge.splendor.robot,zen5.demo.fr.umlv.zen5.demo,fr.uge.splendor.main,fr.uge.splendor,fr.uge.splendor.graph" source="17" sourcepath="lib;src;resources" splitindex="true" use="true" version="true"/>
+    </target>
+              	
+</project>

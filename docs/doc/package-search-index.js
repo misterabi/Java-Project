@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"fr.uge.splendor"},{"l":"fr.uge.splendor.graph"},{"l":"fr.uge.splendor.main"},{"l":"fr.uge.splendor.robot"}];updateSearchResults();
